@@ -1,5 +1,6 @@
 import express from "express";
 
+console.log("hello")
 const PORT = 5000;
 
 const app = express();
