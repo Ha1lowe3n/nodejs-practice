@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import fileUpload from "express-fileupload";
 
 import router from "./router.js";
 
@@ -11,6 +12,8 @@ const app = express();
 
 // подключаем для express преобразование JSON формата
 app.use(express.json());
+app.use(express.static("static"));
+app.use(fileUpload({}));
 app.use("/api", router);
 
 async function startApp() {

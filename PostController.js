@@ -1,13 +1,15 @@
-import Post from "./Post.js";
 import PostService from "./PostService.js";
 
 class PostController {
     async createPost(req, res) {
         try {
-            const post = await PostService.createPost(req.body);
+            const post = await PostService.createPost(
+                req.body,
+                req.files.picture
+            );
             res.status(200).json(post);
         } catch (err) {
-            res.status(500).json(err);
+            res.status(500).json(err.message);
         }
     }
 
